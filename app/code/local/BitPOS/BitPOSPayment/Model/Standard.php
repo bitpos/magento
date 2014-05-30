@@ -105,7 +105,7 @@ class BitPOS_BitPOSPayment_Model_Standard extends Mage_Payment_Model_Method_Abst
 
         Mage::Log("Testnet config: " . $this->getConfigData('testnet') );
 
-        if ($this->getConfigData('testnet') == 0)
+        if ($this->getConfigData('testnet') == 1)
             $url = "https://rest.test.bitpos.me/services/webpay/order/create";
         else
             $url = "https://rest.bitpos.me/services/webpay/order/create";
