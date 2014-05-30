@@ -1,0 +1,11 @@
+<config>
+    <modules>
+        <BitPOS_BitPOSPayment>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Mage_Payment />
+            </depends>
+        </BitPOS_BitPOSPayment>
+    </modules>
+</config>

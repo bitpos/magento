@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <BitPOS_BitPOSPayment>
+            <version>0.1.0</version>
+        </BitPOS_BitPOSPayment>
+    </modules>
+    
+    <global>
+        
+        <models>
+            <bitpospayment>
+                <class>BitPOS_BitPOSPayment_Model</class>
+            </bitpospayment>
+        </models>
+        
+        <helpers>
+            <bitpospayment>
+                <class>BitPOS_BitPOSPayment_Helper</class>
+            </bitpospayment>
+        </helpers>
+        
+        <payment>
+            <groups>
+                <bitpospayment>BitPOSPayment</bitpospayment>
+            </groups>
+        </payment>
+        
+        <events>
+            <checkout_type_onepage_save_order_after>
+                <observers>
+                    <bitpos_bitpospayment_observer>
+                        <class>BitPOS_BitPOSPayment_Model_Observer</class>
+                        <method>saveOrderQuoteToSession</method>
+                    </bitpos_bitpospayment_observer>
+                </observers>
+            </checkout_type_onepage_save_order_after>
+        </events>
+        
+    </global>
+    
+    <default>
+        <payment>
+            <bitpospayment>
+                <model>bitpospayment/standard</model>
+                <group>bitpospayment</group>
+                <active>1</active>
+                <title>Credit Card (MockPay - Fake Payment Gateway) </title>
+                <payment_action>sale</payment_action>
+                <allowspecific>0</allowspecific>
+            </bitpospayment>
+        </payment>
+        <bitpospayment>
+            <settings>
+                <activationstatus>0</activationstatus>
+            </settings>
+        </bitpospayment>
+    </default>
+    
+    <frontend>
+        <secure_url>
+            <bitpospayment_processing>/bitpospayment/standard</bitpospayment_processing>
+        </secure_url>
+        <routers>
+            <bitpospayment>
+                <use>standard</use>
+                <args>
+                    <module>BitPOS_BitPOSPayment</module>
+                    <frontName>bitpospayment</frontName>
+                </args>
+            </bitpospayment>
+        </routers>
+    </frontend>
+
+</config>
