@@ -45,7 +45,7 @@
                 <model>bitpospayment/standard</model>
                 <group>bitpospayment</group>
                 <active>1</active>
-                <title>Credit Card (MockPay - Fake Payment Gateway) </title>
+                <title>Bitcoin Payment with BitPOS</title>
                 <payment_action>sale</payment_action>
                 <allowspecific>0</allowspecific>
             </bitpospayment>
